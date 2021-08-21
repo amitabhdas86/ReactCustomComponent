@@ -5,16 +5,19 @@ const Header = () =>{
     return(
         <div className="ui pointing menu">
                 <Link  className="item" to ="/add">
-                  Form
+                  Basic Form
+                </Link>
+                <Link  className="item" to ="/form">
+                  React Form
                 </Link>
                 <Link  className="item" to ="/tab">
-                   Tab
+                  Content Tab
                 </Link>
                 <Link  className="item" to ="/carousel">
-                   Carousel
+                   Carousel Type
                 </Link>
-                <Link  className="item" to ="/add">
-                   Add Contact
+                <Link  className="item" to ="/tree">
+                  Folder Tree
                 </Link>                
         </div>
 

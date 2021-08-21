@@ -44,9 +44,9 @@ const Carousels = () =>{
           <Header as="h2" content={ddlValue.label} />          
         </Segment>
         <Segment attached="bottom">
-         {ddlValue.value==1?<DotCarousel/>: null}  
-         {ddlValue.value==2?<CardCarousel/>: null}
-         {ddlValue.value==3?<DotCarousel/>: null}
+         {ddlValue.value===1?<DotCarousel/>: null}  
+         {ddlValue.value===2?<CardCarousel/>: null}
+         {ddlValue.value===3?<DotCarousel/>: null}
         </Segment>
     </Container>
 

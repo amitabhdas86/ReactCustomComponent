@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import ContactList from './ContactList';
 
+//ES6 Code
 class AddContact extends React.Component{
     constructor(props){
         super(props)
         this.inputRef = React.createRef()
     }
+    //Mount lifecycle
     componentDidMount(){
         this.inputRef.current.focus()
     }
@@ -13,7 +16,7 @@ class AddContact extends React.Component{
     add= (e) => {
         e.preventDefault();
         if(this.state.name === "" || this.state.email ===""){
-            alert("All Mandatory");
+            alert("All Fields Mandatory");
             return;
         }
         this.props.addContactHandler(this.state);
@@ -29,12 +32,12 @@ class AddContact extends React.Component{
             <form className="ui form" onSubmit={this.add}>
                 <div className="field">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="Name" ref={this.inputRef} value={this.state.name}
+                    <input type="text" name="name" ref={this.inputRef} value={this.state.name}
                     onChange={(e)=>this.setState({name:e.target.value})}></input>
                 </div>
                 <div className="field">
                     <label>Email</label>
-                    <input type="text" name="email" placeholder="Email" value={this.state.email}
+                    <input type="text" name="email" value={this.state.email}
                     onChange={(e)=>this.setState({email:e.target.value})}></input>
                 </div>
                 <button className="ui button blue">ADD</button>
@@ -42,8 +45,13 @@ class AddContact extends React.Component{
                 <Link to="/">
                 <button className="ui button blue">ADD</button>
                 </Link>
-                </div> */}
+                </div> */}               
             </form>
+            {/* <div className ="twelve wide stretched column">
+                <div className="ui segment">
+                    <ContactList/>
+                    </div>   
+                </div> */}
             </div>
         </div>
     )

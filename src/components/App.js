@@ -10,15 +10,21 @@ import {uuid} from 'uuidv4';
 import {BrowserRouter, Switch, Route, Router} from 'react-router-dom';
 import Tab from './Tabbed';
 import Carousels from './Carousels';
+import SubmitForm from './SubmitForm';
 
 function App() {
   const LOCAL_STORAGE="contacts";
+
   //useState an example of Hook
+  //Intialise a collection (useState([]))
   const [contacts,setContacts]=useState([]);  
+
   const addContactHandler = (contact) =>{
     // npm install uuidv4
+    //Spread Operator (...contacts)
     setContacts([...contacts,{id: uuid(),...contact}]);
   };
+
   const removeContactHandler = (id) => {
     const newContactList=contacts.filter((contact)=>{
       return contact.id !== id;
@@ -26,10 +32,13 @@ function App() {
     setContacts(newContactList);
   };
 
+  //Mount event 
   useEffect(()=>{
     const retrieveContacts=JSON.parse(localStorage.getItem(LOCAL_STORAGE));
     if(retrieveContacts) setContacts(retrieveContacts);
   },[])
+
+  //Updated event
   useEffect(()=> {
     localStorage.setItem(LOCAL_STORAGE,JSON.stringify(contacts));
   },[contacts]);
@@ -45,6 +54,7 @@ function App() {
       <Route path="/tree" component={Folder}/>
       <Route path="/tab" component={Tab}/>
       <Route path="/carousel" component={Carousels}/>
+      <Route path="/form" component={SubmitForm}/>
       </Switch>
       </BrowserRouter>
     </div>
